@@ -8,10 +8,7 @@ include_directories(
     "/usr/include/eigen3"
 )
 
-# OpenCV
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_DIRS} )
-
+# Build the executable 
 add_executable( curve_fitting_g2o ${PROJECT_SOURCE_DIR}/src/g2o/main.cpp )
 # Add G2O and OpenCV libs
 target_link_libraries( curve_fitting_g2o 
