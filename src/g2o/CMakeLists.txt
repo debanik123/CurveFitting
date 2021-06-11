@@ -1,13 +1,7 @@
-#cmake_minimum_required( VERSION 2.8 )
-#project( g2o_curve_fitting )
-
-#set( CMAKE_BUILD_TYPE "Release" )
-#set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )
-
-# 添加cmake模块以使用ceres库
+# Add cmake module to use ceres library
 list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/src/g2o/cmake_modules )
 
-# 寻找G2O
+# Find G2O
 find_package( G2O REQUIRED )
 include_directories( 
     ${G2O_INCLUDE_DIRS}
@@ -15,11 +9,11 @@ include_directories(
 )
 
 # OpenCV
-#find_package( OpenCV REQUIRED )
-#include_directories( ${OpenCV_DIRS} )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_DIRS} )
 
 add_executable( curve_fitting_g2o ${PROJECT_SOURCE_DIR}/src/g2o/main.cpp )
-# 与G2O和OpenCV链接
+# Add G2O and OpenCV libs
 target_link_libraries( curve_fitting_g2o 
     ${OpenCV_LIBS}
     g2o_core g2o_stuff
