@@ -20,7 +20,7 @@ set (CMAKE_CXX_FLAGS "-DPCL_ONLY_CORE_POINT_TYPES=ON -DNO_EXPLICIT_INSTANTIATION
 ############### Dependencies #######################
 
 #Add opencv cmake .config path
-set (OpenCV_DIR opt/opencv/release)
+#set (OpenCV_DIR opt/opencv/release)
 
 #Find opencv libs
 find_package(OpenCV 4.5.1 REQUIRED)
