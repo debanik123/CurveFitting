@@ -12,7 +12,7 @@
 [![Stack Overflow][stackoverflow-shield]][stackoverflow.com/users/11175375/adam]
 [![Leetcode][leetcode-shield]][eetcode.com/Hard_Code/]
 -->
-## Geometry Transformation on matrix
+## Curve fitting 
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -54,8 +54,10 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Apply geometry transformations on Eigen matrix
+In regression analysis, curve fitting is the process of specifying the model that provides the best fit to the specific curves in your dataset. Curved relationships between variables are not as straightforward to fit and interpret as linear relationships.
+For linear relationships, as you increase the independent variable by one unit, the mean of the dependent variable always changes by a specific amount. This relationship holds true regardless of where you are in the observation space.
 
+Unfortunately, the real world isn’t always nice and neat like this. Sometimes your data have curved relationships between variables. In a curved relationship, the change in the dependent variable associated with a one unit shift in the independent variable varies based on the location in the observation space. In other words, the effect of the independent variable is not a constant value.
 <!--Built with -->
 ### Built With
 
@@ -64,8 +66,8 @@ Apply geometry transformations on Eigen matrix
 * [cmake](https://cmake.org/)
 * [gnu](https://www.gnu.org/)
 * [eigen](https://eigen.tuxfamily.org/)
-* [boost](https://boost.org/)
-* [sophus](https://github.com/strasdat/Sophus)
+* [g2o](https://github.com/RainerKuemmerle/g2o)
+* [ceres](https://github.com/ceres-solver/ceres-solver)
 <br>
 
 ## File Structure
@@ -82,11 +84,18 @@ Apply geometry transformations on Eigen matrix
 ```
 .
 ├── CMakeLists.txt
-├── include
-│   └── Log.h
 ├── README.md
 └── src
-    └── useSophus.cpp
+    ├── ceres
+    │   ├── CMakeLists.txt
+    │   ├── cmake_modules
+    │   │   └── CeresConfig.cmake.in
+    │   └── main.cpp
+    └── g2o
+        ├── CMakeLists.txt
+        ├── cmake_modules
+        │   └── FindG2O.cmake
+        └── main.cpp
 
 ```
 
@@ -94,7 +103,7 @@ Apply geometry transformations on Eigen matrix
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is a sample code of how you may use  the Eigen library matrix and transformations.
+This is a sample code of how you may use  `g2o` and `ceres` to perform curve fitting.
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
@@ -108,65 +117,40 @@ This is an example of how to list things you need to use the software and how to
  ```sh
  sudo apt-get install -y libeigen3-dev
  ```
- * boost
- ```sh
- sudo apt-get install libboost-all-dev
- ```
- * sophus
- ```sh
-git clone https://github.com/strasdat/Sophus.git
-cd Sophus/
-git checkout a621ff
 
-mkdir build
-cd build
-cmake ..
-make
-make install
- ```
- Change the following codes at line `/Sophus/sophus/so2.cpp:33:26` as commented
-```
-SO2::SO2()
-{
-  //unit_complex_.real() = 1.;
-  //unit_complex_.imag() = 0.;
-  unit_complex_.real(1.);
-  unit_complex_.imag(0.);
-}
-```
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/zoumson/Sohpus.git
+   git clone https://github.com/zoumson/CurveFitting.git
    ```
 2. Go to the project directory source
    ```sh
-   cd Sohpus
+   cd CurveFitting
    ```
-3. Create empty directories `build`, `log`, and `bin`
+3. Create empty directories `build`, and `bin`
    ```sh
-   mkdir build &&  mkdir bin && mkdir log
+   mkdir build &&  mkdir bin 
    ```
-5. Generate the exectutable `useSophus` and move it to `bin`
+5. Generate the exectutables it to `bin`
    ```sh
    cd build && cmake .. && make -j4 && cd ..
    ```
 
 <!-- USAGE EXAMPLES -->
 ### Usage
-1. Run for matrix usage 
+1. Run with `ceres`
    ```sh
-   ./bin/useSohpus
+   ./bin/curve_fitting_ceres
    ```
-2. Output
+1. Run with `g2o`
    ```sh
-
+   ./bin/curve_fitting_g2o
    ```
 
 4. Back to the initial file structure configuration
    ```sh
-   rm -r bin build log
+   rm -r bin build 
    ```
 <!-- ROADMAP -->
 ## Roadmap
@@ -198,7 +182,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
 
-Project Link: [https://github.com/zoumson/Sophus](https://github.com/zoumson/Sophus.git)
+Project Link: [https://github.com/zoumson/CurveFitting](https://github.com/zoumson/CurveFitting.git)
 
 
 
