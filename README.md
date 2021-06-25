@@ -132,14 +132,18 @@ This is an example of how to list things you need to use the software and how to
  sudo su 
  ```
   ```sh
- cd /opt && mkdir g2oInstall && cd g2oInstall && git clone https://github.com/RainerKuemmerle/g2o.git \
- && cd g2o && mkidr build && cd build && cmake .. && make -j4 && make install
+ cd /opt && mkdir g2oInstall && cd g2oInstall \
+ && git clone https://github.com/RainerKuemmerle/g2o.git \
+ && cd g2o && mkidr build && cd build && cmake .. \
+ && make -j4 && make install
  ```
   * ceres
  ```sh
  sudo apt-get install libgoogle-glog-dev libatlas-base-dev && \
- && cd /opt && mkdir ceresInstall && cd ceresInstall && git clone https://github.com/ceres-solver/ceres-solver.git \
- && cd ceres-solver && mkdir build && cd build && cmake .. && make -j4 && make install
+ && cd /opt && mkdir ceresInstall && cd ceresInstall \
+ && git clone https://github.com/ceres-solver/ceres-solver.git \
+ && cd ceres-solver && mkdir build && cd build && cmake .. \
+ && make -j4 && make install
  ```
 ### Installation
 
