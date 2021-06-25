@@ -66,8 +66,10 @@ Unfortunately, the real world isn’t always nice and neat like this. Sometimes 
 * [cmake](https://cmake.org/)
 * [gnu](https://www.gnu.org/)
 * [eigen](https://eigen.tuxfamily.org/)
-* [g2o](https://github.com/RainerKuemmerle/g2o)
-* [ceres](https://github.com/ceres-solver/ceres-solver)
+* [g2o](https://github.com/RainerKuemmerle/g2o/)
+* [ceres](https://github.com/ceres-solver/ceres-solver/)
+* [suitesparse](https://people.engr.tamu.edu/davis/suitesparse.html/)
+* [qt](https://www.qt.io/)
 <br>
 
 ## File Structure
@@ -117,7 +119,28 @@ This is an example of how to list things you need to use the software and how to
  ```sh
  sudo apt-get install -y libeigen3-dev
  ```
-
+ * suitesparse
+ ```sh
+ sudo apt-get install -y libsuitesparse-dev
+ ```
+  * qt
+ ```sh
+ sudo apt-get install -y qtdeclarative5-dev qt5-qmake libqglviewer-dev
+ ```
+  * g2o
+ ```sh
+ sudo su 
+ ```
+  ```sh
+ cd /opt && mkdir g2oInstall && cd g2oInstall && git clone https://github.com/RainerKuemmerle/g2o.git \
+ && cd g2o && mkidr build && cd build && cmake .. && make -j4 && make install
+ ```
+  * ceres
+ ```sh
+ sudo apt-get install libgoogle-glog-dev libatlas-base-dev && \
+ && cd /opt && mkdir ceresInstall && cd ceresInstall && git clone https://github.com/ceres-solver/ceres-solver.git \
+ && cd ceres-solver && mkdir build && cd build && cmake .. && make -j4 && make install
+ ```
 ### Installation
 
 1. Clone the repo
