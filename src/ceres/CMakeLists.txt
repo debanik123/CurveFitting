@@ -6,6 +6,6 @@ find_package( Ceres REQUIRED )
 include_directories( ${CERES_INCLUDE_DIRS} )
 
 #Build executable 
-add_executable( curve_fitting_ceres ${PROJECT_SOURCE_DIR}/src/ceres/main.cpp )
+add_executable( demoCeres ${PROJECT_SOURCE_DIR}/src/ceres/demoCeres.cpp )
 # Add Ceres and OpenCV libs 
-target_link_libraries( curve_fitting_ceres ${CERES_LIBRARIES} ${OpenCV_LIBS} )
+target_link_libraries( demoCeres ${CERES_LIBRARIES} ${OpenCV_LIBS} ${Boost_LIBRARIES})

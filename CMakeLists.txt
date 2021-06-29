@@ -23,8 +23,19 @@ set (CMAKE_CXX_FLAGS "-DPCL_ONLY_CORE_POINT_TYPES=ON -DNO_EXPLICIT_INSTANTIATION
 #set (OpenCV_DIR opt/opencv/release)
 
 #Find opencv libs
-find_package(OpenCV 4.5.1 REQUIRED)
+find_package(OpenCV REQUIRED)
+#SET(Boost_USE_STATIC_LIBS ON)
+SET(Boost_USE_SHARED_LIBS ON)
+set(CMAKE_USE_PTHREADS_INIT true)
+set(CMAKE_USE_PTHREADS_INIT ON)
 
+find_package(Threads REQUIRED )
+find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(Threads)
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+endif()
 ############### My Files #########################
 
 #Bring the headers
@@ -33,8 +44,3 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 #Bring the source files
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/ceres)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/g2o)
-
-
-
-
-
