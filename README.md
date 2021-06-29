@@ -58,11 +58,14 @@ In regression analysis, curve fitting is the process of specifying the model tha
 For linear relationships, as you increase the independent variable by one unit, the mean of the dependent variable always changes by a specific amount. This relationship holds true regardless of where you are in the observation space.
 
 Unfortunately, the real world isn’t always nice and neat like this. Sometimes your data have curved relationships between variables. In a curved relationship, the change in the dependent variable associated with a one unit shift in the independent variable varies based on the location in the observation space. In other words, the effect of the independent variable is not a constant value.
-The fitting model in this project is as follows:  *y = exp(ax^2+bx+c)*
+
+The fitting model in this project is as follows:  
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;y=\exp&space;(a\cdot&space;x^{2}&plus;b\cdot&space;x&plus;c)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;y=\exp&space;(a\cdot&space;x^{2}&plus;b\cdot&space;x&plus;c)" title="\large y=\exp (a\cdot x^{2}+b\cdot x+c)" /></a>
+
 <!--Built with -->
 ### Built With
 
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 <br>
 
 * [cmake](https://cmake.org/)
@@ -73,6 +76,7 @@ The fitting model in this project is as follows:  *y = exp(ax^2+bx+c)*
 * [suitesparse](https://people.engr.tamu.edu/davis/suitesparse.html/)
 * [qt](https://www.qt.io/)
 * [boost](https://www.boost.org/)
+* [opencv](https://opencv.org/)
 <br>
 
 ## File Structure
@@ -154,6 +158,16 @@ This is an example of how to list things you need to use the software and how to
  && cd ceres-solver && mkdir build && cd build && cmake .. \
  && make -j4 && make install
  ```
+  * opencv4
+ ```sh
+ sudo su
+ ```
+ ```sh
+git clone https://github.com/zoumson/OpencvInstall.git     \
+&& cd OpencvInstall && chmod +x install.sh && ./install.sh
+ ```
+ 
+ 
 ### Installation
 
 1. Clone the repo
@@ -168,7 +182,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    mkdir build &&  mkdir bin 
    ```
-5. Generate the exectutables it to `bin`
+5. Generate the exectutables and move them to `bin`
    ```sh
    cd build && cmake .. && make -j4 && cd ..
    ```
