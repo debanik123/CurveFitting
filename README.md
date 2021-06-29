@@ -13,6 +13,7 @@
 [![Leetcode][leetcode-shield]][eetcode.com/Hard_Code/]
 -->
 ## Curve fitting 
+![curve](https://user-images.githubusercontent.com/38358621/123753974-f937d780-d8ec-11eb-92c5-790c3083941e.png)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
