@@ -54,12 +54,16 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-In regression analysis, curve fitting is the process of specifying the model that provides the best fit to the specific curves in your dataset. Curved relationships between variables are not as straightforward to fit and interpret as linear relationships.
-For linear relationships, as you increase the independent variable by one unit, the mean of the dependent variable always changes by a specific amount. This relationship holds true regardless of where you are in the observation space.
+In regression analysis, curve fitting is the process of specifying the model that provides the best fit to the specific curves in your dataset. 
+Curved relationships between variables are not as straightforward to fit and interpret as linear relationships.
+For linear relationships, as you increase the independent variable by one unit, the mean of the dependent variable always changes by a specific amount. 
+This relationship holds true regardless of where you are in the observation space.
 
-Unfortunately, the real world isn’t always nice and neat like this. Sometimes your data have curved relationships between variables. In a curved relationship, the change in the dependent variable associated with a one unit shift in the independent variable varies based on the location in the observation space. In other words, the effect of the independent variable is not a constant value.
+Unfortunately, the real world isn’t always nice and neat like this. Sometimes your data have curved relationships between variables. In a curved relationship, the change in the dependent variable associated with a one unit shift in the independent variable varies based on the location in the observation space. 
+In other words, the effect of the independent variable is not a constant value. Most curves used to fit experimental data are non-linear. 
+In this project two c++ frameworks, namely, `ceres` and `g2o` are used to estimate the parameter of the model given a set of experimenal data.
 
-The fitting model in this project is as follows:  
+The fitting model is as follows:  
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;y=\exp&space;(a\cdot&space;x^{2}&plus;b\cdot&space;x&plus;c)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;y=\exp&space;(a\cdot&space;x^{2}&plus;b\cdot&space;x&plus;c)" title="\large y=\exp (a\cdot x^{2}+b\cdot x+c)" /></a>
 
@@ -166,6 +170,10 @@ This is an example of how to list things you need to use the software and how to
 git clone https://github.com/zoumson/OpencvInstall.git     \
 && cd OpencvInstall && chmod +x install.sh && ./install.sh
  ```
+  * Boost
+  ```sh
+    sudo apt-get install libboost-all-dev
+  ```
  
  
 ### Installation
