@@ -58,9 +58,11 @@ In regression analysis, curve fitting is the process of specifying the model tha
 For linear relationships, as you increase the independent variable by one unit, the mean of the dependent variable always changes by a specific amount. This relationship holds true regardless of where you are in the observation space.
 
 Unfortunately, the real world isn’t always nice and neat like this. Sometimes your data have curved relationships between variables. In a curved relationship, the change in the dependent variable associated with a one unit shift in the independent variable varies based on the location in the observation space. In other words, the effect of the independent variable is not a constant value.
+The fitting model in this project is as follows:  *y = exp(ax^2+bx+c)*
 <!--Built with -->
 ### Built With
 
+![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
 <br>
 
 * [cmake](https://cmake.org/)
@@ -70,6 +72,7 @@ Unfortunately, the real world isn’t always nice and neat like this. Sometimes 
 * [ceres](https://github.com/ceres-solver/ceres-solver/)
 * [suitesparse](https://people.engr.tamu.edu/davis/suitesparse.html/)
 * [qt](https://www.qt.io/)
+* [boost](https://www.boost.org/)
 <br>
 
 ## File Structure
@@ -86,18 +89,24 @@ Unfortunately, the real world isn’t always nice and neat like this. Sometimes 
 ```
 .
 ├── CMakeLists.txt
+├── include
+│   ├── CeresCost.h
+│   └── CommonCurve.h
 ├── README.md
 └── src
     ├── ceres
     │   ├── CMakeLists.txt
     │   ├── cmake_modules
     │   │   └── CeresConfig.cmake.in
-    │   └── main.cpp
+    │   └── demoCeres.cpp
     └── g2o
         ├── CMakeLists.txt
         ├── cmake_modules
         │   └── FindG2O.cmake
-        └── main.cpp
+        └── demoG2O.cpp
+
+6 directories, 10 files
+
 
 ```
 
@@ -166,18 +175,41 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ### Usage
-1. Run with `ceres`
-   ```sh
-   ./bin/curve_fitting_ceres
-   ```
-1. Run with `g2o`
-   ```sh
-   ./bin/curve_fitting_g2o
-   ```
+1. Command line options
+```sh
+Usage: options_description [options]
+Allowed options:
+  -h [ --help ]                         produce help message
+  -a [ --first ] arg                    first parameter
+  -b [ --second ] arg                   second parameter
+  -c [ --third ] arg                    third parameter
+  -n [ --number ] [=arg(=500)] (=100)   number of data
+  -i [ --iteration ] [=arg(=200)] (=100)
+                                        number of iterations
+  -s [ --noise ] [=arg(=5)] (=1)        noise added
 
-4. Back to the initial file structure configuration
+```
+2. Run with `ceres`
+```sh
+./bin/demoCeres -a 1 -b 1 -c 1
+```
+3. Sample Data generated as `29_06_2021_13_46_37_readDataCeres.txt` in directory `result`
+4. Parameter for the model saved in `29_06_2021_13_46_37_parametersCeres.txt`
+```sh
+Estimated a,b,c =0.660982 1.5863 -0.190824
+```
+5. Run with `g2o`
+```sh
+./bin/demoG2O -a 1 -b 1 -c 1
+```
+6. Sample Data generated as `29_06_2021_13_49_32_readDataG2O.txt` in directory `result`
+7. Parameter for the model saved in `29_06_2021_13_46_37_parametersCeres.txt`
+```sh
+estimated model a, b, c: 0.656489  1.59246 -0.19271
+```
+8. Back to the initial file structure configuration
    ```sh
-   rm -r bin build 
+   rm -r bin build result
    ```
 <!-- ROADMAP -->
 ## Roadmap
