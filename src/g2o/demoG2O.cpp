@@ -64,8 +64,8 @@ int main( int argc, char** argv )
     // create directory if not exist
     struct stat info;
     if( stat( path.c_str(), &info ) != 0 )fs::create_directories(path);
-    std::string pathRealData = path + za::getCurrentTime() + dataFile;
-    std::string pathParameter = path + za::getCurrentTime() + parameter;
+    std::string pathRealData = path + dataFile;
+    std::string pathParameter = path + parameter;
   
     // True parameter value to be estimated 
     double a, b, c;  

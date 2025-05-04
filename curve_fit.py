@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load optimized parameters (a, b, c)
-with open("/home/dj/robotics/CurveFitting/result/04_05_2025_21_33_55_parametersG2O.txt", "r") as f:
+with open("./result/parametersG2O.txt", "r") as f:
     line = f.readline()
     parts = line.strip().split(":")[1].strip().split()
     a, b, c = map(float, parts)
@@ -11,7 +11,7 @@ with open("/home/dj/robotics/CurveFitting/result/04_05_2025_21_33_55_parametersG
 x_data = []
 y_data = []
 
-with open("/home/dj/robotics/CurveFitting/result/04_05_2025_21_33_55_readDataG2O.txt", "r") as f:
+with open("./result/readDataG2O.txt", "r") as f:
     lines = f.readlines()
 
 for line in lines:
