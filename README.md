@@ -157,13 +157,23 @@ This is an example of how to list things you need to use the software and how to
  ```
   * ceres
  ```sh
- sudo apt-get install libgoogle-glog-dev libatlas-base-dev && \
- && cd /opt && mkdir ceresInstall && cd ceresInstall \
- && git clone https://github.com/ceres-solver/ceres-solver.git \
- && cd ceres-solver && mkdir build && cd build && cmake .. \
- && make -j4 && make install
+  sudo apt-get install libgoogle-glog-dev libatlas-base-dev
+  ENV CERES_VERSION="2.1.0"
+
+  ######################################
+  # Install Ceres Solver
+  ######################################
+  RUN git clone --recursive https://github.com/ceres-solver/ceres-solver.git && \
+      cd ceres-solver && \
+      git checkout tags/${CERES_VERSION} && \
+      mkdir build && cd build && \
+      cmake .. -DBUILD_EXAMPLES=OFF -DBUILD_TESTING=OFF -DBUILD_BENCHMARKS=OFF && \
+      make -j$(nproc) && \
+      make install && \
+      ldconfig
  ```
-  * opencv4
+  
+* opencv4
  ```sh
  sudo su
  ```
