@@ -208,7 +208,9 @@ int main( int argc, char** argv )
     std::unique_ptr<Block> solver_ptr (new Block(std::move(linearSolver)));
 	
     // Gradient descent method, choose from GN, LM, DogLeg
-    g2o::OptimizationAlgorithmGaussNewton * solver = new g2o::OptimizationAlgorithmGaussNewton(std::move(solver_ptr));
+    // g2o::OptimizationAlgorithmGaussNewton * solver = new g2o::OptimizationAlgorithmGaussNewton(std::move(solver_ptr));
+    g2o::OptimizationAlgorithmLevenberg * solver = new g2o::OptimizationAlgorithmLevenberg(std::move(solver_ptr));
+
     //zouma
     
     g2o::SparseOptimizer optimizer;     // Graph model
