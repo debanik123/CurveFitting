@@ -89,7 +89,7 @@ int main( int argc, char** argv )
 					"third parameter")				
                 ("number,n", po::value<int>(&N)->default_value(100)->implicit_value(500),
 					"number of data")                
-                ("iteration,i", po::value<int>(&iterate)->default_value(100)->implicit_value(200),
+                ("iteration,i", po::value<int>(&iterate)->default_value(1000)->implicit_value(200),
 					"number of iterations")
 				("noise,s", po::value<double>(&w_sigma)->default_value(1)->implicit_value(5),
 					"noise added");		
